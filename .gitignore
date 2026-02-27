@@ -1,0 +1,18 @@
+# R session artifacts
+.RData
+.Rhistory
+.Rproj.user/
+*.Rproj
+
+# Temporary and scratch files in scripts/
+scripts/*.txt
+scripts/*.tmp
+scripts/*.bak
+
+# Generated HTML outputs
+*.html
+
+# OS artifacts
+.DS_Store
+Thumbs.db
+desktop.ini
