@@ -5,21 +5,21 @@
 
 ## Italiano
 
-### Overview
+### Panoramica
 
-Codice R per la tesi magistrale *"La Rete della Fama: Network Analysis sui dati Pantheon"*
+Codice R per la tesi triennale *"La Rete della Fama: Network Analysis sui dati Pantheon"*
 (Gabriele Paganelli, Università di Padova, A.A. 2023/2024) — [leggi la tesi](thesis.pdf).
 
 Analisi della rete biografica **Networked Pantheon**: 11.340 figure storiche connesse
 da 126.153 archi diretti derivati dalla co-citazione su Wikipedia. Il progetto esplora
 la struttura della rete, gli indici di centralità, le community e i fattori associati
-alla popolarità storica (HPI, Views, BCI) tramite modelli ERGM.
+alla popolarità storica (HPI, Views, BCI); poi tenta una modellazione tramite ERGM.
 
 **Dataset:** Beytía, P. & Schobin, J. (2018). *Networked Pantheon: A Relational Database
 of Globally Famous People.* Research Data Journal for the Humanities and Social Sciences,
 3(1), 85–98. [DOI: 10.1163/24523666-01000009](https://doi.org/10.1163/24523666-01000009)
 
-### Methodology
+### Metodologia
 
 - **Analisi descrittiva** — distribuzioni per dominio, continente, paese, secolo, genere
 - **Indici di centralità** — degree, betweenness, closeness, PageRank, HITS
@@ -28,7 +28,7 @@ of Globally Famous People.* Research Data Journal for the Humanities and Social 
 - **ERGM** (Exponential Random Graph Models) — modellazione dei fattori associati a HPI,
   Views e BCI controllando per struttura della rete
 
-### Repository Structure
+### Struttura del repository
 
 ```
 pantheon-network-analysis/
@@ -48,7 +48,7 @@ pantheon-network-analysis/
 │   └── network_utils.R                    # Helper condiviso: dati, grafi, funzioni
 │
 ├── scripts/
-│   ├── 01_cfd.R                           # Cumulative Frequency Distribution
+│   ├── 01_cfd.R                           # Distribuzioni cumulate di frequenza
 │   ├── 02_graph_variables.R               # Reti categoria-categoria per Gephi
 │   ├── 03_subnetwork_analysis.R           # Analisi sottoreti (heatmap)
 │   ├── 04a_indices_global.R               # Indici globali
@@ -66,11 +66,10 @@ pantheon-network-analysis/
     ├── category_domain.csv                # Rete pesata tra domini (da 02)
     ├── category_continent.csv             # Rete pesata tra continenti (da 02)
     ├── category_country.csv               # Rete pesata tra paesi (da 02)
-    ├── category_country_all.csv           # Rete pesata tra paesi (tutti; da 02)
     └── category_century.csv               # Rete pesata tra secoli (da 02)
 ```
 
-### Installation
+### Installazione
 
 ```r
 install.packages(c(
@@ -83,10 +82,10 @@ install.packages(c(
 
 Analisi svolta con R ≥ 4.3 e igraph ≥ 1.5.
 
-### Usage
+### Utilizzo
 
-Eseguire **dalla root del repository**. Tutti gli script (tranne `01_cfd.R`)
-iniziano con `source("R/network_utils.R")`.
+Eseguire **dalla root del repository**.
+Tutti gli script (tranne `01_cfd.R`) iniziano con `source("R/network_utils.R")`.
 
 ```r
 # Fase 1 — Analisi principali (indipendenti tra loro)
@@ -104,25 +103,25 @@ source("scripts/05a_exploratory_descriptive.R")  # → output/nodes_gephi.csv
 source("scripts/05b_exploratory_communities.R")
 source("scripts/05c_exploratory_centrality.R")
 
-# Fase 4 — ERGM (opzionale, richiede ore di calcolo)
+# Fase 4 — ERGM (opzionale, tempi di calcolo inammissibili per alcune sezioni)
 source("scripts/06_ergm.R")
 ```
 
 Per la visualizzazione in Gephi importare `output/nodes_gephi.csv`,
 `output/edges_gephi.csv` e i file in `network_export/`.
 
-### Results
+### Risultati
 
-- Analisi strutturale: distribuzione dei gradi, componente gigante, clustering
+- Analisi strutturale: distribuzione dei gradi, clustering
 - Centralità: top-figure per betweenness, PageRank e HITS
 - Community: partizione della rete per dominio e continente
 - ERGM: fattori strutturali e attributi associati a HPI, Views e BCI
 - Export CSV per visualizzazione interattiva in Gephi
 
-### Author
+### Autore
 
 **Gabriele Paganelli** — Academic Portfolio
-Tesi magistrale, Università di Padova, A.A. 2023/2024.
+Tesi triennale, Università di Padova, A.A. 2023/2024.
 
 ---
 
@@ -130,13 +129,13 @@ Tesi magistrale, Università di Padova, A.A. 2023/2024.
 
 ### Overview
 
-R code for the master's thesis *"The Network of Fame: Network Analysis on the Pantheon Dataset"*
+R code for the bachelor's thesis *"The Web of Fame: Network Analysis on the Pantheon Dataset"*
 (Gabriele Paganelli, University of Padova, A.Y. 2023/2024) — [read the thesis](thesis.pdf).
 
 Analysis of the **Networked Pantheon** biographical network: 11,340 historical figures
 connected by 126,153 directed edges derived from Wikipedia co-citations. The project
 explores network structure, centrality indices, community detection, and factors
-associated with historical popularity (HPI, Views, BCI) via ERGM models.
+associated with historical popularity (HPI, Views, BCI); tentative modeling is performed via ERGM.
 
 **Dataset:** Beytía, P. & Schobin, J. (2018). *Networked Pantheon: A Relational Database
 of Globally Famous People.* Research Data Journal for the Humanities and Social Sciences,
@@ -189,7 +188,6 @@ pantheon-network-analysis/
     ├── category_domain.csv                # Weighted domain-domain network (from 02)
     ├── category_continent.csv             # Weighted continent network (from 02)
     ├── category_country.csv               # Weighted country network (from 02)
-    ├── category_country_all.csv           # Weighted country network — all nodes (from 02)
     └── category_century.csv               # Weighted century network (from 02)
 ```
 
@@ -208,8 +206,8 @@ Tested with R ≥ 4.3 and igraph ≥ 1.5.
 
 ### Usage
 
-Run all scripts **from the repository root**. All scripts (except `01_cfd.R`)
-begin with `source("R/network_utils.R")`.
+Run all scripts **from the repository root**.
+All scripts (except `01_cfd.R`) begin with `source("R/network_utils.R")`.
 
 ```r
 # Phase 1 — Main analyses (independent)
@@ -227,7 +225,7 @@ source("scripts/05a_exploratory_descriptive.R")  # → output/nodes_gephi.csv
 source("scripts/05b_exploratory_communities.R")
 source("scripts/05c_exploratory_centrality.R")
 
-# Phase 4 — ERGM (optional, computationally intensive)
+# Phase 4 — ERGM (optional, some parts are impossibly computationally intensive)
 source("scripts/06_ergm.R")
 ```
 
@@ -236,7 +234,7 @@ and the files in `network_export/`.
 
 ### Results
 
-- Structural analysis: degree distribution, giant component, clustering coefficients
+- Structural analysis: degree distribution, clustering coefficients
 - Centrality: top figures by betweenness, PageRank, and HITS
 - Communities: network partition by domain and continent
 - ERGM: structural and attribute-level factors associated with HPI, Views, and BCI
@@ -245,4 +243,4 @@ and the files in `network_export/`.
 ### Author
 
 **Gabriele Paganelli** — Academic Portfolio
-Master's thesis, University of Padova, A.Y. 2023/2024.
+Bachelor's thesis, University of Padova, A.Y. 2023/2024.
