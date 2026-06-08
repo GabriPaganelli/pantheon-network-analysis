@@ -1,0 +1,25 @@
+cff-version: 1.2.0
+message: "If you use this project, please cite it as below."
+type: software
+title: "The Network of Fame: Network Analysis on the Pantheon Dataset"
+abstract: >
+  Network analysis of the Pantheon biographical dataset containing 11,340 historical
+  figures connected by 126,153 directed edges derived from Wikipedia co-citations.
+  Explores network structure, centrality indices (degree, betweenness, PageRank, HITS),
+  community detection, and factors associated with historical popularity using ERGM models.
+authors:
+  - family-names: Paganelli
+    given-names: Gabriele
+    affiliation: "University of Padova"
+    email: gabrielepaganelli13@gmail.com
+keywords:
+  - network analysis
+  - ERGM
+  - centrality
+  - community detection
+  - Pantheon
+  - biographical network
+  - historical figures
+license: MIT
+repository-code: "https://github.com/GabriPaganelli/pantheon-network-analysis"
+date-released: "2026-06-08"
