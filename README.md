@@ -1,5 +1,10 @@
 # La Rete della Fama: Network Analysis sui dati Pantheon
-# *The Network of Fame: Network Analysis on the Pantheon Dataset*
+# *The Web of Fame: Network Analysis on the Pantheon Dataset*
+
+**[Italiano](#italiano) · [English](#english)** · [Thesis (PDF)](thesis.pdf) · [Web](https://gabripaganelli.github.io/projects/pantheon.html)
+
+![Networked Pantheon network coloured by domain](figures/pantheon_network_domain.png)
+*Rete colorata per dominio (Gephi) · Network coloured by domain (Gephi)*
 
 ---
 
@@ -11,13 +16,14 @@ Codice R per la tesi triennale *"La Rete della Fama: Network Analysis sui dati P
 (Gabriele Paganelli, Università di Padova, A.A. 2023/2024) — [leggi la tesi](thesis.pdf).
 
 Analisi della rete biografica **Networked Pantheon**: 11.340 figure storiche connesse
-da 126.153 archi diretti derivati dalla co-citazione su Wikipedia. Il progetto esplora
+da 126.153 archi diretti derivati dagli hyperlink tra le biografie di Wikipedia in inglese. Il progetto esplora
 la struttura della rete, gli indici di centralità, le community e i fattori associati
 alla popolarità storica (HPI, Views, BCI); poi tenta una modellazione tramite ERGM.
 
 **Dataset:** Beytía, P. & Schobin, J. (2018). *Networked Pantheon: A Relational Database
-of Globally Famous People.* Research Data Journal for the Humanities and Social Sciences,
-3(1), 85–98. [DOI: 10.1163/24523666-01000009](https://doi.org/10.1163/24523666-01000009)
+of Globally Famous People.* SSRN Electronic Journal. [DOI: 10.2139/ssrn.3255401](https://doi.org/10.2139/ssrn.3255401)
+
+I file in `data-raw/` provengono dal Networked Pantheon ([OSF](https://doi.org/10.17605/OSF.IO/QTU2J)) e sono ridistribuiti con licenza [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/): `Edges.csv`, `Nodes.csv`, `README.txt` e le immagini sono gli originali, mentre `networked_pantheon.gephi` è stato risalvato in Gephi. La licenza MIT del repo copre solo il codice.
 
 ### Metodologia
 
@@ -34,14 +40,16 @@ of Globally Famous People.* Research Data Journal for the Humanities and Social 
 pantheon-network-analysis/
 ├── README.md
 ├── LICENSE
+├── CITATION.cff
 ├── thesis.pdf
+├── figures/                               # Immagine della rete (README)
 │
 ├── data-raw/
 │   ├── networked_pantheon_db/
-│   │   ├── Edges.csv                      # 126.153 archi (co-citazione Wikipedia)
+│   │   ├── Edges.csv                      # 126.153 archi (hyperlink Wikipedia)
 │   │   ├── Nodes.csv                      # 11.340 nodi (figure storiche + attributi)
 │   │   ├── README.txt                     # Dizionario colonne dataset originale
-│   │   └── networked_pantheon.gephi       # Progetto Gephi originale
+│   │   └── networked_pantheon.gephi       # Progetto Gephi (risalvato il 04/08/2024)
 │   └── images/                            # Screenshot visualizzazioni Gephi
 │
 ├── R/
@@ -103,7 +111,7 @@ source("scripts/05a_exploratory_descriptive.R")  # → output/nodes_gephi.csv
 source("scripts/05b_exploratory_communities.R")
 source("scripts/05c_exploratory_centrality.R")
 
-# Fase 4 — ERGM (opzionale, tempi di calcolo inammissibili per alcune sezioni)
+# Fase 4 — ERGM (opzionale, tempi di calcolo proibitivi per alcune sezioni)
 source("scripts/06_ergm.R")
 ```
 
@@ -111,6 +119,11 @@ Per la visualizzazione in Gephi importare `output/nodes_gephi.csv`,
 `output/edges_gephi.csv` e i file in `network_export/`.
 
 ### Risultati
+
+**Risultati principali** (dalle conclusioni della tesi):
+- Le views grezze di Wikipedia non sono un buon indicatore dell'importanza storica; l'indice HPI è più affidabile
+- La rete mostra una spiccata omofilia, soprattutto per dominio; anche periodo storico e area geografica influenzano la formazione dei legami
+- Gli ERGM stimati si sono rivelati incostanti e inaffidabili (degeneracy); come alternativa la tesi indica un mixed membership stochastic block model
 
 - Analisi strutturale: distribuzione dei gradi, clustering
 - Centralità: top-figure per betweenness, PageRank e HITS
@@ -120,8 +133,7 @@ Per la visualizzazione in Gephi importare `output/nodes_gephi.csv`,
 
 ### Autore
 
-**Gabriele Paganelli** — Academic Portfolio
-Tesi triennale, Università di Padova, A.A. 2023/2024.
+**Gabriele Paganelli** — Tesi triennale, Università di Padova, A.A. 2023/2024.
 
 ---
 
@@ -133,13 +145,14 @@ R code for the bachelor's thesis *"The Web of Fame: Network Analysis on the Pant
 (Gabriele Paganelli, University of Padova, A.Y. 2023/2024) — [read the thesis](thesis.pdf).
 
 Analysis of the **Networked Pantheon** biographical network: 11,340 historical figures
-connected by 126,153 directed edges derived from Wikipedia co-citations. The project
+connected by 126,153 directed edges derived from hyperlinks between English Wikipedia biographies. The project
 explores network structure, centrality indices, community detection, and factors
 associated with historical popularity (HPI, Views, BCI); tentative modeling is performed via ERGM.
 
 **Dataset:** Beytía, P. & Schobin, J. (2018). *Networked Pantheon: A Relational Database
-of Globally Famous People.* Research Data Journal for the Humanities and Social Sciences,
-3(1), 85–98. [DOI: 10.1163/24523666-01000009](https://doi.org/10.1163/24523666-01000009)
+of Globally Famous People.* SSRN Electronic Journal. [DOI: 10.2139/ssrn.3255401](https://doi.org/10.2139/ssrn.3255401)
+
+The files in `data-raw/` come from Networked Pantheon ([OSF](https://doi.org/10.17605/OSF.IO/QTU2J)) and are redistributed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/): `Edges.csv`, `Nodes.csv`, `README.txt` and the images are the originals, while `networked_pantheon.gephi` was re-saved in Gephi. The repo's MIT license covers the code only.
 
 ### Methodology
 
@@ -156,14 +169,16 @@ of Globally Famous People.* Research Data Journal for the Humanities and Social 
 pantheon-network-analysis/
 ├── README.md
 ├── LICENSE
+├── CITATION.cff
 ├── thesis.pdf
+├── figures/                               # Network image (README)
 │
 ├── data-raw/
 │   ├── networked_pantheon_db/
-│   │   ├── Edges.csv                      # 126,153 edges (Wikipedia co-citations)
+│   │   ├── Edges.csv                      # 126,153 edges (Wikipedia hyperlinks)
 │   │   ├── Nodes.csv                      # 11,340 nodes (historical figures + attributes)
 │   │   ├── README.txt                     # Original dataset column dictionary
-│   │   └── networked_pantheon.gephi       # Original Gephi project
+│   │   └── networked_pantheon.gephi       # Gephi project (re-saved on 04/08/2024)
 │   └── images/                            # Gephi visualisation screenshots
 │
 ├── R/
@@ -225,7 +240,7 @@ source("scripts/05a_exploratory_descriptive.R")  # → output/nodes_gephi.csv
 source("scripts/05b_exploratory_communities.R")
 source("scripts/05c_exploratory_centrality.R")
 
-# Phase 4 — ERGM (optional, some parts are impossibly computationally intensive)
+# Phase 4 — ERGM (optional, some parts are computationally prohibitive)
 source("scripts/06_ergm.R")
 ```
 
@@ -233,6 +248,11 @@ For Gephi visualisation, import `output/nodes_gephi.csv`, `output/edges_gephi.cs
 and the files in `network_export/`.
 
 ### Results
+
+**Key findings** (from the thesis conclusions):
+- Raw Wikipedia page views are a poor proxy for historical importance; the HPI index proves more reliable
+- The network shows strong homophily, mainly by domain; shared historical period and geographic area also drive tie formation
+- The fitted ERGMs proved unstable and unreliable (degeneracy); a mixed membership stochastic block model is suggested as an alternative
 
 - Structural analysis: degree distribution, clustering coefficients
 - Centrality: top figures by betweenness, PageRank, and HITS
@@ -242,5 +262,4 @@ and the files in `network_export/`.
 
 ### Author
 
-**Gabriele Paganelli** — Academic Portfolio
-Bachelor's thesis, University of Padova, A.Y. 2023/2024.
+**Gabriele Paganelli** — Bachelor's thesis, University of Padova, A.Y. 2023/2024.

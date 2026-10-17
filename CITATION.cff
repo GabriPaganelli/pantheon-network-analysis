@@ -1,10 +1,10 @@
 cff-version: 1.2.0
 message: "If you use this project, please cite it as below."
 type: software
-title: "The Network of Fame: Network Analysis on the Pantheon Dataset"
+title: "The Web of Fame: Network Analysis on the Pantheon Dataset"
 abstract: >
   Network analysis of the Pantheon biographical dataset containing 11,340 historical
-  figures connected by 126,153 directed edges derived from Wikipedia co-citations.
+  figures connected by 126,153 directed edges derived from hyperlinks between English Wikipedia biographies.
   Explores network structure, centrality indices (degree, betweenness, PageRank, HITS),
   community detection, and factors associated with historical popularity using ERGM models.
 authors:
